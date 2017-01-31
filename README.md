@@ -31,10 +31,10 @@ You can initialize textroll with options, here are the default values for the av
 
 var defaultOptions = {
 	'interval' : 100 // milliseconds between each iterations of replacement
-	'alphabet' : 'abcdefghijklmnopqrstuvwxyz' // string of successive letters to add
-	'numbers' : '0123456789' // string of successive letters to add
-	'punctuation' : '"\'(-),?;.:!' // string of successive letters to add
-	'specials' : '&#~{[|`_\\^@]=}+°<>/§*%¨$£¤' // string of successive letters to add
+	'alphabet' : 'abcdefghijklmnopqrstuvwxyz' // string of successive characters to add
+	'numbers' : '0123456789' // string of successive characters to add
+	'punctuation' : '"\'(-),?;.:!' // string of successive characters to add
+	'specials' : '&#~{[|`_\\^@]=}+°<>/§*%¨$£¤' // string of successive characters to add
 	'addCorpora' : {'corpusName' : ''} // add new corpus, object with key: corpus name, value: strings of successive characters,
 	'spaceCorpus' : 'alphabet' // string defining which corpus contains space character
 	'changeCase' : 'end' // 'beginning' or 'end' for applying case change
