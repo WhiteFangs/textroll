@@ -14,6 +14,10 @@ The transition works especially well on replacement of text with the same beginn
 
 ![](./interesting.gif)
 
+The 'progressive' option allows you to make a train-station-board-like effect on the text change:
+
+![](./progressive.gif)
+
 ## Install
 
 Simply add the textroll.js script file to your page
@@ -30,19 +34,21 @@ You can initialize textroll with options, here are the default values for the av
 ```javascript
 
 var defaultOptions = {
-	'interval' : 100 // milliseconds between each iterations of replacement
-	'alphabet' : 'abcdefghijklmnopqrstuvwxyz' // string of successive characters to add
-	'numbers' : '0123456789' // string of successive characters to add
-	'punctuation' : '"\'(-),?;.:!' // string of successive characters to add
-	'specials' : '&#~{[|`_\\^@]=}+°<>/§*%¨$£¤' // string of successive characters to add
-	'addCorpora' : {'corpusName' : ''} // add new corpus, object with key: corpus name, value: strings of successive characters,
-	'spaceCorpus' : 'alphabet' // string defining which corpus contains space character
+	'interval' : 100, // milliseconds between each iterations of replacement
+	'progressive' : false, // if true, character replacement expands with time from first character to whole text
+	'alphabet' : 'abcdefghijklmnopqrstuvwxyz', // string of successive characters to add
+	'numbers' : '0123456789', // string of successive characters to add
+	'punctuation' : '"\'(-),?;.:!', // string of successive characters to add
+	'specials' : '&#~{[|`_\\^@]=}+°<>/§*%¨$£¤', // string of successive characters to add
+	'addCorpora' : {'corpusName' : ''}, // add new corpus, object with key: corpus name, value: strings of successive characters,
+	'spaceCorpus' : 'alphabet', // string defining which corpus contains space character
 	'changeCase' : 'end' // 'beginning' or 'end' for applying case change
 }
 
 // use init to override default options with your own
 textroll.init({
 	'interval' : 500, 
+	'progressive' : true,
 	'spaceCorpus' : 'punctuation',
 	'addCorpora': {'cedilla' : 'çş'}
 	'changeCase' : 'beginning'

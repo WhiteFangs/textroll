@@ -2,6 +2,7 @@ var textroll = (function () {
 
 	var _defaults = {
 		interval: 100,
+		progressive : false,
 		alphabet : 'abcdefghijklmnopqrstuvwxyz'.split(''),
 		numbers : '0123456789'.split(''),
 		punctuation: '"\'(-),?;.:!'.split(''),
@@ -42,6 +43,7 @@ var textroll = (function () {
 		}
 		// add other variables to _options
 		_options.interval = options.interval != undefined ? options.interval : _defaults.interval;
+		_options.progressive = options.progressive != undefined ? options.progressive : _defaults.progressive;
 		_options.changeCaseAtEnd = options.changeCase == "beginning" ? false : options.changeCase == "end" ? true : _defaults.changeCase == "end";
 	}		
 	
@@ -76,22 +78,27 @@ var textroll = (function () {
 
 	function replaceText (element, newText){
 		var oldText = element.innerText;
+		var iteration = 0;
 		var interval = setInterval(function (){
 			if( oldText == newText || oldText.toLowerCase() == sansAccents(newText)){
 				element.innerText = newText;
 				clearInterval(interval);
 				return;
 			}else{
-				oldText = getNextText(oldText, newText);
-				if(oldText.length > newText.length)
+				oldText = getNextText(oldText, newText, iteration);
+				if(oldText.length > newText.length && (!_options.progressive || iteration > oldText.length))
 					oldText = oldText.slice(0, oldText.length - 1);
 				element.innerText = oldText;
+				iteration++;
 			}
 		}, _options.interval);
 	}
 
-	function getNextText(oldText, newText){
-		for(var i =0; i < newText.length; i++){
+	function getNextText(oldText, newText, iteration){
+		var stop = newText.length;
+		if(_options.progressive)
+			stop = Math.min(iteration, stop);
+		for(var i =0; i < stop; i++){
 			var oldChar = oldText[i];
 			var newChar = newText[i];
 			if(oldChar == newChar)
