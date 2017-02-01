@@ -8,15 +8,15 @@ The characters "roll" through the set of characters they belong to until they re
 
 An image is worth a thousands words, so a gif probably does worth more:
 
-![](./example.gif)
+![](./images/example.gif)
 
 The transition works especially well on replacement of text with the same beginning:
 
-![](./interesting.gif)
+![](./images/interesting.gif)
 
 The 'progressive' option allows you to make a train-station-board-like effect on the text change:
 
-![](./progressive.gif)
+![](./images/progressive.gif)
 
 ## Install
 
