@@ -27,6 +27,18 @@ Simply add the textroll.js script file to your page
 
 ```
 
+## Usage
+
+Simply call the replace function with the element containing the text to replace and the new text.
+
+```javascript
+// #myElement contains the text to replace
+var element = document.querySelector("#myElement");
+// textroll.replace replaces the text inside the element with animation
+textroll.replace(element, "New text inside the element"); 
+
+```
+
 ## Options
 
 You can initialize textroll with options, here are the default values for the available options:
